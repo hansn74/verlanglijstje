@@ -9,7 +9,9 @@ import wishlist from '../data/wishlist.json';
 
 export default function Home() {
   const [openedGifts, setOpenedGifts] = useState<number[]>([]);
-  const [claimedGifts, setClaimedGifts] = useState<number[]>([]);
+  const [claimedGifts, setClaimedGifts] = useState<Record<number, { claimedBy: string }>>({});
+  const [userName, setUserName] = useState<string>('');
+  const [showNamePrompt, setShowNamePrompt] = useState(false);
   const [settings, setSettings] = useState<Settings>({
     animationSpeed: 'medium',
     theme: 'gradient',
@@ -17,13 +19,27 @@ export default function Home() {
     soundEnabled: true,
   });
 
-  // Load claimed gifts from localStorage
+  // Load user name and claims from server
   useEffect(() => {
-    const claimed = localStorage.getItem('claimedGifts');
-    if (claimed) {
-      setClaimedGifts(JSON.parse(claimed));
+    // Get or set user name
+    const savedName = localStorage.getItem('userName');
+    if (savedName) {
+      setUserName(savedName);
     }
+
+    // Fetch all claims from server
+    fetchClaims();
   }, []);
+
+  const fetchClaims = async () => {
+    try {
+      const response = await fetch('/api/claims');
+      const data = await response.json();
+      setClaimedGifts(data.claims || {});
+    } catch (error) {
+      console.error('Error fetching claims:', error);
+    }
+  };
 
   const handleOpen = (id: number) => {
     if (!openedGifts.includes(id)) {
@@ -31,10 +47,37 @@ export default function Home() {
     }
   };
 
-  const handleClaim = (id: number) => {
-    const newClaimed = [...claimedGifts, id];
-    setClaimedGifts(newClaimed);
-    localStorage.setItem('claimedGifts', JSON.stringify(newClaimed));
+  const handleClaim = async (id: number) => {
+    // Ask for name if not set
+    if (!userName) {
+      setShowNamePrompt(true);
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/claims', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ giftId: id, claimedBy: userName }),
+      });
+
+      if (response.ok) {
+        // Refresh claims
+        await fetchClaims();
+      } else {
+        const data = await response.json();
+        alert(data.error || 'Dit cadeau is al geclaimd door iemand anders!');
+      }
+    } catch (error) {
+      console.error('Error claiming gift:', error);
+      alert('Er ging iets mis. Probeer het opnieuw.');
+    }
+  };
+
+  const saveName = (name: string) => {
+    setUserName(name);
+    localStorage.setItem('userName', name);
+    setShowNamePrompt(false);
   };
 
   const handleShare = async () => {
@@ -109,11 +152,11 @@ export default function Home() {
                 <div className={settings.theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}>Bekeken</div>
               </div>
               <div>
-                <div className="font-bold text-2xl">{claimedGifts.length}</div>
+                <div className="font-bold text-2xl">{Object.keys(claimedGifts).length}</div>
                 <div className={settings.theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}>Geclaimd</div>
               </div>
               <div>
-                <div className="font-bold text-2xl">{wishlist.length - claimedGifts.length}</div>
+                <div className="font-bold text-2xl">{wishlist.length - Object.keys(claimedGifts).length}</div>
                 <div className={settings.theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}>Beschikbaar</div>
               </div>
             </div>
@@ -127,11 +170,59 @@ export default function Home() {
               {...item}
               onOpen={() => handleOpen(item.id)}
               settings={settings}
-              isClaimed={claimedGifts.includes(item.id)}
+              isClaimed={!!claimedGifts[item.id]}
               onClaim={() => handleClaim(item.id)}
             />
           ))}
         </div>
+
+        {/* Name Prompt Modal */}
+        {showNamePrompt && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl"
+            >
+              <h2 className="text-2xl font-bold mb-4">Hoe heet je?</h2>
+              <p className="text-gray-600 mb-6">
+                Vul je naam in zodat Hans weet wie wat geeft!
+              </p>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const input = e.currentTarget.elements.namedItem('name') as HTMLInputElement;
+                  if (input.value.trim()) {
+                    saveName(input.value.trim());
+                  }
+                }}
+              >
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Je naam..."
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg mb-4 focus:border-blue-500 focus:outline-none"
+                  autoFocus
+                />
+                <div className="flex gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setShowNamePrompt(false)}
+                    className="flex-1 px-4 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors font-semibold"
+                  >
+                    Annuleren
+                  </button>
+                  <button
+                    type="submit"
+                    className="flex-1 px-4 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors font-semibold"
+                  >
+                    Opslaan
+                  </button>
+                </div>
+              </form>
+            </motion.div>
+          </div>
+        )}
 
         <motion.div
           initial={{ opacity: 0 }}
