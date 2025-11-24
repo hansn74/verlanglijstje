@@ -80,26 +80,6 @@ export default function Home() {
     setShowNamePrompt(false);
   };
 
-  const handleShare = async () => {
-    const shareData = {
-      title: "Hans z'n Verlanglijstje",
-      text: 'Bekijk mijn verlanglijstje!',
-      url: window.location.href,
-    };
-
-    if (navigator.share) {
-      try {
-        await navigator.share(shareData);
-      } catch (err) {
-        console.log('Share cancelled');
-      }
-    } else {
-      // Fallback: copy to clipboard
-      navigator.clipboard.writeText(window.location.href);
-      alert('Link gekopieerd naar klembord!');
-    }
-  };
-
   const themeClasses = {
     gradient: 'bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50',
     minimal: 'bg-gray-50',
@@ -129,20 +109,11 @@ export default function Home() {
             Tap op een cadeau om te ontdekken wat Hans graag wil!
           </p>
 
-          <div className="flex gap-4 justify-center items-center flex-wrap">
-            <SmileyProgress
-              openedCount={openedGifts.length}
-              totalCount={wishlist.length}
-              soundEnabled={settings.soundEnabled}
-            />
-
-            <button
-              onClick={handleShare}
-              className="px-6 py-3 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors font-semibold shadow-lg hover:shadow-xl"
-            >
-              📤 Deel dit lijstje
-            </button>
-          </div>
+          <SmileyProgress
+            openedCount={openedGifts.length}
+            totalCount={wishlist.length}
+            soundEnabled={settings.soundEnabled}
+          />
 
           {/* Stats Dashboard */}
           <div className={`mt-6 p-4 rounded-xl ${settings.theme === 'dark' ? 'bg-white/10' : 'bg-white/60'} backdrop-blur-sm inline-block`}>
