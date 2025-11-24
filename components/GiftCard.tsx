@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import type { Settings } from './SettingsPanel';
 import { playPlop, playTap } from '@/lib/sounds';
 
 interface GiftCardProps {
@@ -11,7 +10,11 @@ interface GiftCardProps {
   image: string;
   reveal: string;
   onOpen: () => void;
-  settings: Settings;
+  settings: {
+    animationSpeed: 'slow' | 'medium' | 'fast';
+    sparkles: 'none' | 'subtle' | 'maximum';
+    soundEnabled: boolean;
+  };
   isClaimed?: boolean;
   claimedBy?: string;
   currentUser?: string;

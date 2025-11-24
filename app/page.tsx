@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import GiftCard from '../components/GiftCard';
 import SmileyProgress from '../components/SmileyProgress';
-import SettingsPanel, { Settings } from '../components/SettingsPanel';
 import wishlist from '../data/wishlist.json';
 
 export default function Home() {
@@ -12,12 +11,13 @@ export default function Home() {
   const [claimedGifts, setClaimedGifts] = useState<Record<number, { claimedBy: string }>>({});
   const [userName, setUserName] = useState<string>('');
   const [showNamePrompt, setShowNamePrompt] = useState(false);
-  const [settings, setSettings] = useState<Settings>({
-    animationSpeed: 'medium',
-    theme: 'gradient',
-    sparkles: 'subtle',
+
+  // Default settings (hardcoded)
+  const settings = {
+    animationSpeed: 'medium' as const,
+    sparkles: 'subtle' as const,
     soundEnabled: true,
-  });
+  };
 
   // Load user name and claims from server
   useEffect(() => {
@@ -80,22 +80,8 @@ export default function Home() {
     setShowNamePrompt(false);
   };
 
-  const themeClasses = {
-    gradient: 'bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50',
-    minimal: 'bg-gray-50',
-    playful: 'bg-gradient-to-br from-yellow-50 via-green-50 to-blue-50',
-    dark: 'bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900',
-  };
-
-  const textColorClasses = {
-    gradient: 'text-gray-800',
-    minimal: 'text-gray-800',
-    playful: 'text-gray-800',
-    dark: 'text-white',
-  };
-
   return (
-    <div className={`min-h-screen ${themeClasses[settings.theme]} ${textColorClasses[settings.theme]} p-4 sm:p-8`}>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 text-gray-800 p-4 sm:p-8">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -105,7 +91,7 @@ export default function Home() {
           <h1 className="text-4xl sm:text-6xl font-bold mb-4">
             Hans z&apos;n Verlanglijstje 🎁
           </h1>
-          <p className={`text-lg sm:text-xl mb-6 ${settings.theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
+          <p className="text-lg sm:text-xl mb-6 text-gray-600">
             Tap op een cadeau om te ontdekken wat Hans graag wil!
           </p>
 
@@ -116,19 +102,19 @@ export default function Home() {
           />
 
           {/* Stats Dashboard */}
-          <div className={`mt-6 p-4 rounded-xl ${settings.theme === 'dark' ? 'bg-white/10' : 'bg-white/60'} backdrop-blur-sm inline-block`}>
+          <div className="mt-6 p-4 rounded-xl bg-white/60 backdrop-blur-sm inline-block">
             <div className="flex gap-8 text-sm">
               <div>
                 <div className="font-bold text-2xl">{openedGifts.length}</div>
-                <div className={settings.theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}>Bekeken</div>
+                <div className="text-gray-600">Bekeken</div>
               </div>
               <div>
                 <div className="font-bold text-2xl">{Object.keys(claimedGifts).length}</div>
-                <div className={settings.theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}>Geclaimd</div>
+                <div className="text-gray-600">Geclaimd</div>
               </div>
               <div>
                 <div className="font-bold text-2xl">{wishlist.length - Object.keys(claimedGifts).length}</div>
-                <div className={settings.theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}>Beschikbaar</div>
+                <div className="text-gray-600">Beschikbaar</div>
               </div>
             </div>
           </div>
@@ -203,13 +189,12 @@ export default function Home() {
           transition={{ delay: 0.5 }}
           className="text-center mt-12 pb-8"
         >
-          <p className={`text-sm ${settings.theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
-            Gemaakt met ❤️ voor Hans • {wishlist.length} items
+          <p className="text-sm text-gray-500">
+            Gemaakt met ❤️ door Hans
           </p>
         </motion.div>
       </div>
 
-      <SettingsPanel settings={settings} onSettingsChange={setSettings} />
     </div>
   );
 }
