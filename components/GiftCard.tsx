@@ -156,16 +156,6 @@ export default function GiftCard({
             </motion.div>
           ))}
 
-          {/* Checkmark Badge */}
-          <motion.div
-            className="absolute -top-3 -right-3 bg-green-500 rounded-full w-8 h-8 flex items-center justify-center shadow-lg"
-            initial={{ scale: 0 }}
-            animate={{ scale: [0, 1.2, 1] }}
-            transition={{ delay: animDuration * 0.4, duration: animDuration * 0.4 }}
-          >
-            <span className="text-white text-lg">✓</span>
-          </motion.div>
-
           {/* Image/Emoji */}
           <motion.div
             className="text-6xl mb-4 text-center"
