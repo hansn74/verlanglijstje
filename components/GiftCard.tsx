@@ -13,7 +13,7 @@ interface GiftCardProps {
   onOpen: () => void;
   settings: Settings;
   isClaimed?: boolean;
-  onClaim?: () => void;
+  onClaim?: () => Promise<void> | void;
 }
 
 export default function GiftCard({
@@ -28,6 +28,7 @@ export default function GiftCard({
 }: GiftCardProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [showClaimConfirm, setShowClaimConfirm] = useState(false);
+  const [isClaiming, setIsClaiming] = useState(false);
 
   // Animation speed mapping
   const speedMap = {
@@ -69,10 +70,10 @@ export default function GiftCard({
     }
   };
 
-  const handleClaim = () => {
+  const handleClaim = async () => {
     if (onClaim) {
-      onClaim();
-      setShowClaimConfirm(false);
+      setIsClaiming(true);
+      await onClaim();
     }
   };
 
@@ -178,7 +179,7 @@ export default function GiftCard({
           </motion.div>
 
           {/* Claim Button */}
-          {!isClaimed && onClaim && (
+          {!isClaimed && !isClaiming && onClaim && (
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -216,6 +217,13 @@ export default function GiftCard({
                 </div>
               )}
             </motion.div>
+          )}
+
+          {/* Claiming in progress */}
+          {isClaiming && (
+            <div className="mt-auto pt-4 text-center text-purple-600 font-semibold">
+              ⏳ Even geduld...
+            </div>
           )}
 
           {/* Claimed Message */}
