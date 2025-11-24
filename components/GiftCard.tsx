@@ -95,7 +95,7 @@ export default function GiftCard({
       {/* Closed State - Gift Box */}
       {!isOpen && (
         <motion.div
-          className="bg-gradient-to-br from-red-400 to-red-500 rounded-2xl p-8 shadow-lg min-h-[200px] flex flex-col items-center justify-center"
+          className="bg-gradient-to-br from-red-400 to-red-500 rounded-2xl p-8 shadow-lg h-[340px] flex flex-col items-center justify-center"
           initial={{ scale: 1 }}
           whileHover={{ scale: 1.02 }}
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
@@ -109,7 +109,7 @@ export default function GiftCard({
       {/* Open State - Revealed Content */}
       {isOpen && (
         <motion.div
-          className="bg-white rounded-2xl p-8 shadow-xl min-h-[200px] relative"
+          className="bg-white rounded-2xl p-8 shadow-xl h-[340px] relative flex flex-col"
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{
@@ -165,7 +165,7 @@ export default function GiftCard({
 
           {/* Reveal Text */}
           <motion.div
-            className="text-gray-600 text-center text-lg leading-relaxed whitespace-pre-line mb-6"
+            className="text-gray-600 text-center text-lg leading-relaxed whitespace-pre-line flex-grow"
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: animDuration * 0.5, duration: animDuration * 0.4 }}
@@ -179,7 +179,7 @@ export default function GiftCard({
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: animDuration * 0.7 }}
-              className="mt-4"
+              className="mt-auto pt-4"
             >
               {!showClaimConfirm ? (
                 <button
@@ -219,7 +219,7 @@ export default function GiftCard({
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="bg-purple-100 text-purple-800 p-3 rounded-lg text-center text-sm"
+              className="bg-purple-100 text-purple-800 p-3 rounded-lg text-center text-sm mt-auto"
             >
               ✅ Dit cadeau is al gereserveerd door iemand anders!
             </motion.div>
