@@ -47,6 +47,11 @@ export default function GiftCard({
 
   const handleTap = () => {
     if (!isOpen) {
+      // Haptic feedback on tap
+      if (navigator.vibrate) {
+        navigator.vibrate(50);
+      }
+
       // Play tap sound first
       if (settings.soundEnabled) {
         playTap();
