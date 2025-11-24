@@ -100,7 +100,7 @@ export default function GiftCard({
           whileHover={{ scale: 1.02 }}
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         >
-          <div className="text-7xl mb-4">🎁</div>
+          <div className="text-7xl mb-4">{image}</div>
           <div className="text-white/80 text-sm mt-2">Tap om te openen!</div>
         </motion.div>
       )}
