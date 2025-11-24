@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import GiftCard from '../components/GiftCard';
 import SmileyProgress from '../components/SmileyProgress';
 import SettingsPanel, { Settings } from '../components/SettingsPanel';
-import wishlistData from '../data/wishlist.json';
+import wishlist from '../data/wishlist.json';
 
 export default function Home() {
   const [openedGifts, setOpenedGifts] = useState<number[]>([]);
@@ -89,7 +89,7 @@ export default function Home() {
           <div className="flex gap-4 justify-center items-center flex-wrap">
             <SmileyProgress
               openedCount={openedGifts.length}
-              totalCount={wishlistData.wishlist.length}
+              totalCount={wishlist.length}
               soundEnabled={settings.soundEnabled}
             />
 
@@ -113,7 +113,7 @@ export default function Home() {
                 <div className={settings.theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}>Geclaimd</div>
               </div>
               <div>
-                <div className="font-bold text-2xl">{wishlistData.wishlist.length - claimedGifts.length}</div>
+                <div className="font-bold text-2xl">{wishlist.length - claimedGifts.length}</div>
                 <div className={settings.theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}>Beschikbaar</div>
               </div>
             </div>
@@ -121,7 +121,7 @@ export default function Home() {
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {wishlistData.wishlist.map((item, index) => (
+          {wishlist.map((item, index) => (
             <GiftCard
               key={item.id}
               {...item}
@@ -140,7 +140,7 @@ export default function Home() {
           className="text-center mt-12 pb-8"
         >
           <p className={`text-sm ${settings.theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
-            Gemaakt met ❤️ voor Hans • {wishlistData.wishlist.length} items
+            Gemaakt met ❤️ voor Hans • {wishlist.length} items
           </p>
         </motion.div>
       </div>
