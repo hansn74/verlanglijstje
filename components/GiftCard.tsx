@@ -101,7 +101,6 @@ export default function GiftCard({
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         >
           <div className="text-7xl mb-4">🎁</div>
-          <div className="text-white font-semibold text-xl text-center">{title}</div>
           <div className="text-white/80 text-sm mt-2">Tap om te openen!</div>
         </motion.div>
       )}
