@@ -6,6 +6,12 @@
     "reveal": "Maakt elke salade speciaal.\nSmaak! 🥗"
   },
   {
+    "id": 19,
+    "title": "3 weken Bahama's",
+    "image": "🏝️",
+    "reveal": "All-inclusive, 5 sterren.\nMag ook 4 weken! 🌴"
+  },
+  {
     "id": 2,
     "title": "Hot sauce collectie",
     "image": "🌶️",
@@ -16,6 +22,12 @@
     "title": "Premium thee collectie",
     "image": "🍵",
     "reveal": "Voor rustige momenten.\nOntspanning! 🍵"
+  },
+  {
+    "id": 20,
+    "title": "Porsche 911",
+    "image": "🏎️",
+    "reveal": "GT3 RS in Racing Yellow.\nVroem vroem! 💨"
   },
   {
     "id": 4,
@@ -30,6 +42,12 @@
     "reveal": "Wit schijnt in te zijn.\nComfort! 😊"
   },
   {
+    "id": 21,
+    "title": "100gr Beluga Kaviaar",
+    "image": "🥄",
+    "reveal": "Iranian Beluga.\nMet parelmoer lepeltje! 🖤"
+  },
+  {
     "id": 6,
     "title": "Warme sjaal",
     "image": "🧣",
@@ -40,6 +58,12 @@
     "title": "Pantoffelsokken",
     "image": "🧦",
     "reveal": "Voor warme voeten thuis.\nCozy! 🏠"
+  },
+  {
+    "id": 22,
+    "title": "Rolex Daytona",
+    "image": "⌚",
+    "reveal": "Platinum met ice blue dial.\nTik tak! 💎"
   },
   {
     "id": 8,
@@ -54,6 +78,12 @@
     "reveal": "Voor cozy avonden.\nSfeer! ✨"
   },
   {
+    "id": 23,
+    "title": "Privé eiland",
+    "image": "🏝️",
+    "reveal": "Ergens in de Malediven.\nMet butler! 🛎️"
+  },
+  {
     "id": 10,
     "title": "Zachte deken/plaid",
     "image": "🛋️",
@@ -64,6 +94,12 @@
     "title": "Handzeep citroengras",
     "image": "🧴",
     "reveal": "Ruikt heerlijk fris.\nHanden wassen = zen! 🍋"
+  },
+  {
+    "id": 24,
+    "title": "Ruimtereis met SpaceX",
+    "image": "🚀",
+    "reveal": "Window seat graag.\nTo infinity and beyond! 🌌"
   },
   {
     "id": 12,
@@ -78,6 +114,12 @@
     "reveal": "Keuken refresh.\nKleurtjes! 🌈"
   },
   {
+    "id": 25,
+    "title": "Vintage wijn 1945",
+    "image": "🍷",
+    "reveal": "Château Mouton Rothschild.\nEen slokje maar! 🍇"
+  },
+  {
     "id": 14,
     "title": "Handdoeken set",
     "image": "🫔",
@@ -88,6 +130,12 @@
     "title": "Douchegel fancy",
     "image": "🚿",
     "reveal": "Voor dagelijkse routine.\nFris! 🧼"
+  },
+  {
+    "id": 26,
+    "title": "Villa aan de Côte d'Azur",
+    "image": "🏠",
+    "reveal": "Met uitzicht op zee.\nBonjour! 🇫🇷"
   },
   {
     "id": 16,
@@ -102,9 +150,33 @@
     "reveal": "Voor deeg en ingrediënten.\nHandig! 👨‍🍳"
   },
   {
+    "id": 27,
+    "title": "Jacht (50 meter)",
+    "image": "🛥️",
+    "reveal": "Met helikopterplatform.\nAhoy! ⚓"
+  },
+  {
     "id": 18,
     "title": "Tokyo Design Studio kommen",
     "image": "🍜",
     "reveal": "Sendan Tokusa 18cm.\nJapanse stijl! 🇯🇵"
+  },
+  {
+    "id": 28,
+    "title": "Witte truffel (1kg)",
+    "image": "🍄",
+    "reveal": "Alba truffels.\nRuikt naar geld! 💰"
+  },
+  {
+    "id": 29,
+    "title": "Kasteel in Schotland",
+    "image": "🏰",
+    "reveal": "Met spoken en whisky kelder.\nYe olde! 🏴󠁧󠁢󠁳󠁣󠁴󠁿"
+  },
+  {
+    "id": 30,
+    "title": "Privéjet",
+    "image": "✈️",
+    "reveal": "Gulfstream G700.\nGeen security check! 🛫"
   }
 ]
