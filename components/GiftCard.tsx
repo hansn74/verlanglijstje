@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { Settings } from './SettingsPanel';
 import { playPlop, playTap } from '@/lib/sounds';
 
@@ -29,6 +29,14 @@ export default function GiftCard({
   const [isOpen, setIsOpen] = useState(false);
   const [showClaimConfirm, setShowClaimConfirm] = useState(false);
   const [isClaiming, setIsClaiming] = useState(false);
+
+  // Reset claiming state when isClaimed changes
+  useEffect(() => {
+    if (isClaimed) {
+      setIsClaiming(false);
+      setShowClaimConfirm(false);
+    }
+  }, [isClaimed]);
 
   // Animation speed mapping
   const speedMap = {
