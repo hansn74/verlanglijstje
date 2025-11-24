@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "title": "Fancy olijfolie & balsamico",
+    "image": "🫒",
+    "reveal": "Maakt elke salade speciaal.\nSmaak! 🥗"
+  },
+  {
+    "id": 2,
+    "title": "Hot sauce collectie",
+    "image": "🌶️",
+    "reveal": "Hans houdt van pittig.\nHoe heter, hoe beter! 🔥"
+  },
+  {
+    "id": 3,
+    "title": "Premium thee collectie",
+    "image": "🍵",
+    "reveal": "Voor rustige momenten.\nOntspanning! 🍵"
+  },
+  {
+    "id": 4,
+    "title": "RIEDEL Veloce wijnglazen",
+    "image": "🍷",
+    "reveal": "Voor goede wijn.\nProeven! 🍇"
+  },
+  {
+    "id": 5,
+    "title": "Fancy witte sokken",
+    "image": "🧦",
+    "reveal": "Wit schijnt in te zijn.\nComfort! 😊"
+  },
+  {
+    "id": 6,
+    "title": "Warme sjaal",
+    "image": "🧣",
+    "reveal": "Nederlands weer.\nWarm blijven! ❄️"
+  },
+  {
+    "id": 7,
+    "title": "Pantoffelsokken",
+    "image": "🧦",
+    "reveal": "Voor warme voeten thuis.\nCozy! 🏠"
+  },
+  {
+    "id": 8,
+    "title": "Makkelijke plant",
+    "image": "🪴",
+    "reveal": "Voor leven in huis.\nGroene vibes! 🌱"
+  },
+  {
+    "id": 9,
+    "title": "Geurkaarsen",
+    "image": "🕯️",
+    "reveal": "Voor cozy avonden.\nSfeer! ✨"
+  },
+  {
+    "id": 10,
+    "title": "Zachte deken/plaid",
+    "image": "🛋️",
+    "reveal": "Bank upgrade.\nNetflix ready! 📺"
+  },
+  {
+    "id": 11,
+    "title": "Handzeep citroengras",
+    "image": "🧼",
+    "reveal": "Ruikt heerlijk fris.\nHanden wassen = zen! 🍋"
+  },
+  {
+    "id": 12,
+    "title": "Fotolijst/passe-partout",
+    "image": "🖼️",
+    "reveal": "Voor mooie herinneringen.\nPersonaliseer! 📸"
+  },
+  {
+    "id": 13,
+    "title": "Theedoeken set",
+    "image": "🧺",
+    "reveal": "Keuken refresh.\nKleurtjes! 🌈"
+  },
+  {
+    "id": 14,
+    "title": "Handdoeken set",
+    "image": "🛁",
+    "reveal": "Voor badkamer refresh.\nFluffy! 🧖"
+  },
+  {
+    "id": 15,
+    "title": "Douchegel fancy",
+    "image": "🧴",
+    "reveal": "Voor dagelijkse routine.\nFris! 🚿"
+  },
+  {
+    "id": 16,
+    "title": "Vaas voor bloemen",
+    "image": "🌸",
+    "reveal": "Voor verse bloemen.\nKleurtjes! 💐"
+  },
+  {
+    "id": 17,
+    "title": "Keukenschraper",
+    "image": "🔪",
+    "reveal": "Voor deeg en ingrediënten.\nHandig! 👨‍🍳"
+  },
+  {
+    "id": 18,
+    "title": "Tokyo Design Studio kommen",
+    "image": "🍜",
+    "reveal": "Sendan Tokusa 18cm.\nJapanse stijl! 🇯🇵"
+  }
+]
