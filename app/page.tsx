@@ -142,6 +142,8 @@ export default function Home() {
               onOpen={() => handleOpen(item.id)}
               settings={settings}
               isClaimed={!!claimedGifts[item.id]}
+              claimedBy={claimedGifts[item.id]?.claimedBy}
+              currentUser={userName}
               onClaim={() => handleClaim(item.id)}
             />
           ))}

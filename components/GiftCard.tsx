@@ -13,6 +13,8 @@ interface GiftCardProps {
   onOpen: () => void;
   settings: Settings;
   isClaimed?: boolean;
+  claimedBy?: string;
+  currentUser?: string;
   onClaim?: () => Promise<void> | void;
 }
 
@@ -24,6 +26,8 @@ export default function GiftCard({
   onOpen,
   settings,
   isClaimed = false,
+  claimedBy,
+  currentUser,
   onClaim
 }: GiftCardProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -101,8 +105,14 @@ export default function GiftCard({
     >
       {/* Claimed Badge */}
       {isClaimed && !isOpen && (
-        <div className="absolute -top-3 -right-3 z-10 bg-purple-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-          🎯 Gereserveerd
+        <div className={`absolute -top-3 -right-3 z-10 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg ${
+          claimedBy && currentUser && claimedBy === currentUser
+            ? 'bg-green-500'
+            : 'bg-purple-500'
+        }`}>
+          {claimedBy && currentUser && claimedBy === currentUser
+            ? '✅ Jij geeft dit!'
+            : '🎁 Gereserveerd'}
         </div>
       )}
 
@@ -239,9 +249,15 @@ export default function GiftCard({
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="bg-green-100 text-green-800 p-3 rounded-lg text-center text-sm mt-auto"
+              className={`p-3 rounded-lg text-center text-sm mt-auto ${
+                claimedBy && currentUser && claimedBy === currentUser
+                  ? 'bg-green-100 text-green-800'
+                  : 'bg-amber-100 text-amber-800'
+              }`}
             >
-              ✅ Dit cadeau is gereserveerd!
+              {claimedBy && currentUser && claimedBy === currentUser
+                ? '✅ Jij geeft dit cadeau!'
+                : '🎁 Dit cadeau is al gereserveerd'}
             </motion.div>
           )}
         </motion.div>
