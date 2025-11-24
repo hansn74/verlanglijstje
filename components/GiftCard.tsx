@@ -239,9 +239,9 @@ export default function GiftCard({
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="bg-purple-100 text-purple-800 p-3 rounded-lg text-center text-sm mt-auto"
+              className="bg-green-100 text-green-800 p-3 rounded-lg text-center text-sm mt-auto"
             >
-              ✅ Dit cadeau is al gereserveerd door iemand anders!
+              ✅ Dit cadeau is gereserveerd!
             </motion.div>
           )}
         </motion.div>
