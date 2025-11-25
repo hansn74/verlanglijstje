@@ -10,22 +10,24 @@ interface Claim {
 
 export default function AdminPage() {
   const [claims, setClaims] = useState<Record<number, Claim>>({});
+  const [users, setUsers] = useState<string[]>([]);
   const [password, setPassword] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     if (isAuthenticated) {
-      fetchClaims();
+      fetchData();
     }
   }, [isAuthenticated]);
 
-  const fetchClaims = async () => {
+  const fetchData = async () => {
     try {
       const response = await fetch('/api/claims');
       const data = await response.json();
       setClaims(data.claims || {});
+      setUsers(data.users || []);
     } catch (error) {
-      console.error('Error fetching claims:', error);
+      console.error('Error fetching data:', error);
     }
   };
 
@@ -51,10 +53,67 @@ export default function AdminPage() {
       });
 
       if (response.ok) {
-        await fetchClaims();
+        await fetchData();
       }
     } catch (error) {
       console.error('Error unclaiming:', error);
+    }
+  };
+
+  const handleResetAllClaims = async () => {
+    if (!confirm('Weet je zeker dat je ALLE claims wilt resetten? Dit kan niet ongedaan worden!')) return;
+    if (!confirm('Echt zeker? Alle claims worden verwijderd!')) return;
+
+    try {
+      const response = await fetch('/api/admin', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'resetClaims' }),
+      });
+
+      if (response.ok) {
+        await fetchData();
+        alert('Alle claims zijn gereset!');
+      }
+    } catch (error) {
+      console.error('Error resetting claims:', error);
+    }
+  };
+
+  const handleDeleteUser = async (userName: string) => {
+    if (!confirm(`Weet je zeker dat je "${userName}" wilt verwijderen?`)) return;
+
+    try {
+      const response = await fetch('/api/admin', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'deleteUser', userName }),
+      });
+
+      if (response.ok) {
+        await fetchData();
+      }
+    } catch (error) {
+      console.error('Error deleting user:', error);
+    }
+  };
+
+  const handleResetAllUsers = async () => {
+    if (!confirm('Weet je zeker dat je ALLE gebruikers wilt verwijderen?')) return;
+
+    try {
+      const response = await fetch('/api/admin', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'resetUsers' }),
+      });
+
+      if (response.ok) {
+        await fetchData();
+        alert('Alle gebruikers zijn verwijderd!');
+      }
+    } catch (error) {
+      console.error('Error resetting users:', error);
     }
   };
 
@@ -94,7 +153,7 @@ export default function AdminPage() {
 
         <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl mb-6">
           <h2 className="text-xl font-bold mb-4">Stats</h2>
-          <div className="grid grid-cols-3 gap-4 text-center">
+          <div className="grid grid-cols-4 gap-4 text-center">
             <div>
               <div className="text-3xl font-bold text-blue-600">{wishlist.length}</div>
               <div className="text-gray-600">Totaal items</div>
@@ -109,7 +168,63 @@ export default function AdminPage() {
               </div>
               <div className="text-gray-600">Beschikbaar</div>
             </div>
+            <div>
+              <div className="text-3xl font-bold text-purple-600">{users.length}</div>
+              <div className="text-gray-600">Gebruikers</div>
+            </div>
           </div>
+        </div>
+
+        {/* Gebruikers beheer */}
+        <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl mb-6">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl font-bold">Gebruikers</h2>
+            {users.length > 0 && (
+              <button
+                onClick={handleResetAllUsers}
+                className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors text-sm font-semibold"
+              >
+                Alle verwijderen
+              </button>
+            )}
+          </div>
+          {users.length === 0 ? (
+            <p className="text-gray-500">Geen gebruikers geregistreerd</p>
+          ) : (
+            <div className="flex flex-wrap gap-2">
+              {users.map((user) => (
+                <div
+                  key={user}
+                  className="flex items-center gap-2 bg-purple-100 px-3 py-2 rounded-lg"
+                >
+                  <span className="font-medium">{user}</span>
+                  <button
+                    onClick={() => handleDeleteUser(user)}
+                    className="text-red-500 hover:text-red-700 font-bold"
+                    title="Verwijderen"
+                  >
+                    ×
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Danger zone */}
+        <div className="bg-red-50 border-2 border-red-200 rounded-2xl p-6 sm:p-8 mb-6">
+          <h2 className="text-xl font-bold text-red-800 mb-4">⚠️ Danger Zone</h2>
+          <div className="flex gap-4">
+            <button
+              onClick={handleResetAllClaims}
+              className="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-semibold"
+            >
+              Reset alle claims
+            </button>
+          </div>
+          <p className="text-red-600 text-sm mt-2">
+            Let op: deze actie kan niet ongedaan worden gemaakt!
+          </p>
         </div>
 
         <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl">
