@@ -5,7 +5,7 @@
     "image": "🫒",
     "reveal": "Maakt elke salade speciaal.\nSmaak! 🥗",
     "moreInfo": {
-      "description": "Ik zoek een mooie set met premium olijfolie en balsamico azijn. Liefst Italiaans!",
+      "description": "Een mooie set met premium olijfolie en balsamico azijn. Liefst Italiaans!",
       "links": [
         {
           "label": "Voorbeeld op Bol.com",
@@ -18,174 +18,435 @@
     "id": 19,
     "title": "3 weken Bahama's",
     "image": "🏝️",
-    "reveal": "All-inclusive, 5 sterren.\nMag ook 4 weken! 🌴"
+    "reveal": "All-inclusive, 5 sterren.\nMag ook 4 weken! 🌴",
+    "moreInfo": {
+      "description": "Luxe resort, liefst met eigen strand en infinity pool. Business class vliegen is een must!",
+      "links": [
+        {
+          "label": "Atlantis Paradise Island",
+          "url": "https://www.atlantisbahamas.com/"
+        }
+      ]
+    }
   },
   {
     "id": 2,
     "title": "Hot sauce collectie",
     "image": "🌶️",
-    "reveal": "Hans houdt van pittig.\nHoe heter, hoe beter! 🔥"
+    "reveal": "Hans houdt van pittig.\nHoe heter, hoe beter! 🔥",
+    "moreInfo": {
+      "description": "Verschillende soorten hot sauce, van mild tot extreem. Denk aan Sriracha, Tabasco, of échte habanero sauzen.",
+      "links": [
+        {
+          "label": "Hot sauce cadeau set",
+          "url": "https://www.bol.com/nl/nl/s/?searchtext=hot+sauce+cadeau+set"
+        }
+      ]
+    }
   },
   {
     "id": 3,
     "title": "Premium thee collectie",
     "image": "🍵",
-    "reveal": "Voor rustige momenten.\nOntspanning! 🍵"
+    "reveal": "Voor rustige momenten.\nOntspanning! 🍵",
+    "moreInfo": {
+      "description": "Losse thee in mooie blikjes. Graag verschillende smaken: groene thee, Earl Grey, en kruidenthee.",
+      "links": [
+        {
+          "label": "Thee cadeau bij Bol.com",
+          "url": "https://www.bol.com/nl/nl/s/?searchtext=thee+cadeau+set"
+        }
+      ]
+    }
   },
   {
     "id": 20,
     "title": "Porsche 911",
     "image": "🏎️",
-    "reveal": "GT3 RS in Racing Yellow.\nVroem vroem! 💨"
+    "reveal": "GT3 RS in Racing Yellow.\nVroem vroem! 💨",
+    "moreInfo": {
+      "description": "911 GT3 RS, Racing Yellow, carbon kuipstoelen, Weissach pakket. Graag voor de deur parkeren!",
+      "links": [
+        {
+          "label": "Porsche 911 GT3 RS",
+          "url": "https://www.porsche.com/netherlands/models/911/911-gt3-models/911-gt3-rs/"
+        }
+      ]
+    }
   },
   {
     "id": 4,
     "title": "RIEDEL Veloce wijnglazen",
     "image": "🍷",
-    "reveal": "Voor goede wijn.\nProeven! 🍇"
+    "reveal": "Voor goede wijn.\nProeven! 🍇",
+    "moreInfo": {
+      "description": "RIEDEL Veloce serie, voor rode wijn (Cabernet/Merlot). Set van 2 of 4 glazen.",
+      "links": [
+        {
+          "label": "RIEDEL Veloce glazen",
+          "url": "https://www.bol.com/nl/nl/s/?searchtext=riedel+veloce"
+        }
+      ]
+    }
   },
   {
     "id": 5,
     "title": "Fancy witte sokken",
     "image": "🧦",
-    "reveal": "Wit schijnt in te zijn.\nComfort! 😊"
+    "reveal": "Wit schijnt in te zijn.\nComfort! 😊",
+    "moreInfo": {
+      "description": "Witte sokken van goede kwaliteit. Maat 43-46. Liefst van katoen of bamboe.",
+      "links": [
+        {
+          "label": "Witte sokken op Zalando",
+          "url": "https://www.zalando.nl/kleding-heren/?q=witte+sokken"
+        }
+      ]
+    }
   },
   {
     "id": 21,
     "title": "100gr Beluga Kaviaar",
     "image": "🥄",
-    "reveal": "Iranian Beluga.\nMet parelmoer lepeltje! 🖤"
+    "reveal": "Iranian Beluga.\nMet parelmoer lepeltje! 🖤",
+    "moreInfo": {
+      "description": "Echte Iraanse Beluga kaviaar, 100 gram. Met parelmoeren lepeltje erbij (geen metaal!).",
+      "links": [
+        {
+          "label": "Caviar & Bull",
+          "url": "https://www.caviarandbull.nl/"
+        }
+      ]
+    }
   },
   {
     "id": 6,
     "title": "Warme sjaal",
     "image": "🧣",
-    "reveal": "Nederlands weer.\nWarm blijven! ❄️"
+    "reveal": "Nederlands weer.\nWarm blijven! ❄️",
+    "moreInfo": {
+      "description": "Warme sjaal voor de winter. Neutrale kleuren: grijs, donkerblauw of zwart. Liefst wol of cashmere.",
+      "links": [
+        {
+          "label": "Sjaals op Zalando",
+          "url": "https://www.zalando.nl/accessoires-heren/sjaals/"
+        }
+      ]
+    }
   },
   {
     "id": 7,
     "title": "Pantoffelsokken",
     "image": "🧦",
-    "reveal": "Voor warme voeten thuis.\nCozy! 🏠"
+    "reveal": "Voor warme voeten thuis.\nCozy! 🏠",
+    "moreInfo": {
+      "description": "Warme sokken met anti-slip zool. Maat 43-46. Leuke kleuren of prints zijn welkom!",
+      "links": [
+        {
+          "label": "Huissokken op Bol.com",
+          "url": "https://www.bol.com/nl/nl/s/?searchtext=huissokken+heren"
+        }
+      ]
+    }
   },
   {
     "id": 22,
     "title": "Rolex Daytona",
     "image": "⌚",
-    "reveal": "Platinum met ice blue dial.\nTik tak! 💎"
+    "reveal": "Platinum met ice blue dial.\nTik tak! 💎",
+    "moreInfo": {
+      "description": "Rolex Cosmograph Daytona in platinum met ice blue wijzerplaat. Ref. 116506.",
+      "links": [
+        {
+          "label": "Rolex Daytona",
+          "url": "https://www.rolex.com/watches/cosmograph-daytona"
+        }
+      ]
+    }
   },
   {
     "id": 8,
     "title": "Makkelijke plant",
     "image": "🪴",
-    "reveal": "Voor leven in huis.\nGroene vibes! 🌱"
+    "reveal": "Voor leven in huis.\nGroene vibes! 🌱",
+    "moreInfo": {
+      "description": "Een plant die weinig water nodig heeft. Bijvoorbeeld een Sansevieria, Monstera of Zamioculcas.",
+      "links": [
+        {
+          "label": "Kamerplanten bij Intratuin",
+          "url": "https://www.intratuin.nl/kamerplanten/"
+        }
+      ]
+    }
   },
   {
     "id": 9,
     "title": "Geurkaarsen",
     "image": "🕯️",
-    "reveal": "Voor cozy avonden.\nSfeer! ✨"
+    "reveal": "Voor cozy avonden.\nSfeer! ✨",
+    "moreInfo": {
+      "description": "Geurkaarsen met subtiele geur. Graag warme geuren zoals vanille, sandelhout of amber.",
+      "links": [
+        {
+          "label": "Geurkaarsen op Bol.com",
+          "url": "https://www.bol.com/nl/nl/s/?searchtext=geurkaarsen"
+        }
+      ]
+    }
   },
   {
     "id": 23,
     "title": "Privé eiland",
     "image": "🏝️",
-    "reveal": "Ergens in de Malediven.\nMet butler! 🛎️"
+    "reveal": "Ergens in de Malediven.\nMet butler! 🛎️",
+    "moreInfo": {
+      "description": "Een eigen eiland in de Malediven met villa, infinity pool, en 24/7 butler service.",
+      "links": [
+        {
+          "label": "Private Islands Online",
+          "url": "https://www.privateislandsonline.com/search?region=indian-ocean"
+        }
+      ]
+    }
   },
   {
     "id": 10,
     "title": "Zachte deken/plaid",
     "image": "🛋️",
-    "reveal": "Bank upgrade.\nNetflix ready! 📺"
+    "reveal": "Bank upgrade.\nNetflix ready! 📺",
+    "moreInfo": {
+      "description": "Zachte plaid voor op de bank. Neutrale kleuren: grijs, beige of donkerblauw. Liefst groot formaat.",
+      "links": [
+        {
+          "label": "Plaids op Bol.com",
+          "url": "https://www.bol.com/nl/nl/s/?searchtext=plaid+deken"
+        }
+      ]
+    }
   },
   {
     "id": 11,
     "title": "Handzeep citroengras",
     "image": "🧴",
-    "reveal": "Ruikt heerlijk fris.\nHanden wassen = zen! 🍋"
+    "reveal": "Ruikt heerlijk fris.\nHanden wassen = zen! 🍋",
+    "moreInfo": {
+      "description": "Handzeep met citroengras geur. In een mooie dispenser of als navulling.",
+      "links": [
+        {
+          "label": "Handzeep citroengras",
+          "url": "https://www.bol.com/nl/nl/s/?searchtext=handzeep+citroengras"
+        }
+      ]
+    }
   },
   {
     "id": 24,
     "title": "Ruimtereis met SpaceX",
     "image": "🚀",
-    "reveal": "Window seat graag.\nTo infinity and beyond! 🌌"
+    "reveal": "Window seat graag.\nTo infinity and beyond! 🌌",
+    "moreInfo": {
+      "description": "Een vlucht naar het ISS of een rondje om de maan. Window seat is een must!",
+      "links": [
+        {
+          "label": "SpaceX",
+          "url": "https://www.spacex.com/"
+        }
+      ]
+    }
   },
   {
     "id": 12,
     "title": "Fotolijst/passe-partout",
     "image": "🖼️",
-    "reveal": "Voor mooie herinneringen.\nPersonaliseer! 📸"
+    "reveal": "Voor mooie herinneringen.\nPersonaliseer! 📸",
+    "moreInfo": {
+      "description": "Mooie fotolijst met passe-partout. Formaat A4 of 30x40cm. Zwart of houten frame.",
+      "links": [
+        {
+          "label": "Fotolijsten op Bol.com",
+          "url": "https://www.bol.com/nl/nl/s/?searchtext=fotolijst+passe+partout"
+        }
+      ]
+    }
   },
   {
     "id": 13,
     "title": "Theedoeken set",
     "image": "🍽️",
-    "reveal": "Keuken refresh.\nKleurtjes! 🌈"
+    "reveal": "Keuken refresh.\nKleurtjes! 🌈",
+    "moreInfo": {
+      "description": "Set theedoeken van goede kwaliteit. Neutrale kleuren of leuke prints.",
+      "links": [
+        {
+          "label": "Theedoeken op Bol.com",
+          "url": "https://www.bol.com/nl/nl/s/?searchtext=theedoeken+set"
+        }
+      ]
+    }
   },
   {
     "id": 25,
     "title": "Vintage wijn 1945",
     "image": "🍷",
-    "reveal": "Château Mouton Rothschild.\nEen slokje maar! 🍇"
+    "reveal": "Château Mouton Rothschild.\nEen slokje maar! 🍇",
+    "moreInfo": {
+      "description": "Château Mouton Rothschild 1945, het Victory Vintage jaar. Een van de beste wijnen ooit gemaakt.",
+      "links": [
+        {
+          "label": "Wine-Searcher",
+          "url": "https://www.wine-searcher.com/find/mouton+rothschild+1945"
+        }
+      ]
+    }
   },
   {
     "id": 14,
     "title": "Handdoeken set",
     "image": "🫔",
-    "reveal": "Voor de keuken.\nFluffy! 🧽"
+    "reveal": "Voor de keuken.\nFluffy! 🧽",
+    "moreInfo": {
+      "description": "Zachte handdoeken voor in de badkamer. Wit of antraciet. Liefst 500+ gsm.",
+      "links": [
+        {
+          "label": "Handdoeken op Bol.com",
+          "url": "https://www.bol.com/nl/nl/s/?searchtext=handdoeken+set"
+        }
+      ]
+    }
   },
   {
     "id": 15,
     "title": "Douchegel fancy",
     "image": "🚿",
-    "reveal": "Voor dagelijkse routine.\nFris! 🧼"
+    "reveal": "Voor dagelijkse routine.\nFris! 🧼",
+    "moreInfo": {
+      "description": "Premium douchegel met frisse geur. Merken als Rituals, Molton Brown of L'Occitane.",
+      "links": [
+        {
+          "label": "Rituals douchegel",
+          "url": "https://www.rituals.com/nl-nl/collection-body-shower.html"
+        }
+      ]
+    }
   },
   {
     "id": 26,
     "title": "Villa aan de Côte d'Azur",
     "image": "🏠",
-    "reveal": "Met uitzicht op zee.\nBonjour! 🇫🇷"
+    "reveal": "Met uitzicht op zee.\nBonjour! 🇫🇷",
+    "moreInfo": {
+      "description": "Villa met zeezicht in Saint-Tropez of Cap Ferrat. Minimaal 5 slaapkamers en infinity pool.",
+      "links": [
+        {
+          "label": "Sotheby's Realty",
+          "url": "https://www.sothebysrealty.com/eng/sales/france"
+        }
+      ]
+    }
   },
   {
     "id": 16,
     "title": "Vaas voor bloemen",
     "image": "🏺",
-    "reveal": "Voor verse bloemen.\nKleurtjes! 💐"
+    "reveal": "Voor verse bloemen.\nKleurtjes! 💐",
+    "moreInfo": {
+      "description": "Mooie vaas, liefst van glas of keramiek. Medium formaat, geschikt voor een boeket.",
+      "links": [
+        {
+          "label": "Vazen op Bol.com",
+          "url": "https://www.bol.com/nl/nl/s/?searchtext=vaas+bloemen"
+        }
+      ]
+    }
   },
   {
     "id": 17,
     "title": "Keukenschraper",
     "image": "🧑🏻‍🍳",
-    "reveal": "Voor deeg en ingrediënten.\nHandig! 👨‍🍳"
+    "reveal": "Voor deeg en ingrediënten.\nHandig! 👨‍🍳",
+    "moreInfo": {
+      "description": "Flexibele siliconen deegschraper voor in de keuken. Liefst een set met verschillende maten.",
+      "links": [
+        {
+          "label": "Deegschrapers op Bol.com",
+          "url": "https://www.bol.com/nl/nl/s/?searchtext=deegschraper+siliconen"
+        }
+      ]
+    }
   },
   {
     "id": 27,
     "title": "Jacht (50 meter)",
     "image": "🛥️",
-    "reveal": "Met helikopterplatform.\nAhoy! ⚓"
+    "reveal": "Met helikopterplatform.\nAhoy! ⚓",
+    "moreInfo": {
+      "description": "Superjacht van 50+ meter met helikopterplatform, jacuzzi op het dek, en crew van minimaal 10 personen.",
+      "links": [
+        {
+          "label": "Burgess Yachts",
+          "url": "https://www.burgessyachts.com/en/sale-purchase/yachts-for-sale"
+        }
+      ]
+    }
   },
   {
     "id": 18,
     "title": "Tokyo Design Studio kommen",
     "image": "🍜",
-    "reveal": "Sendan Tokusa 18cm.\nJapanse stijl! 🇯🇵"
+    "reveal": "Sendan Tokusa 18cm.\nJapanse stijl! 🇯🇵",
+    "moreInfo": {
+      "description": "Tokyo Design Studio Sendan Tokusa kommen, 18cm diameter. Set van 4 stuks.",
+      "links": [
+        {
+          "label": "Tokyo Design Studio",
+          "url": "https://www.bol.com/nl/nl/s/?searchtext=tokyo+design+studio+sendan+tokusa"
+        }
+      ]
+    }
   },
   {
     "id": 28,
     "title": "Witte truffel (1kg)",
     "image": "🍄",
-    "reveal": "Alba truffels.\nRuikt naar geld! 💰"
+    "reveal": "Alba truffels.\nRuikt naar geld! 💰",
+    "moreInfo": {
+      "description": "Verse witte Alba truffels uit Piemonte. 1 kilogram van de beste kwaliteit.",
+      "links": [
+        {
+          "label": "Truffle Hunters",
+          "url": "https://www.trufflehunter.co.uk/"
+        }
+      ]
+    }
   },
   {
     "id": 29,
     "title": "Kasteel in Schotland",
     "image": "🏰",
-    "reveal": "Met spoken en whisky kelder.\nYe olde! 🏴󠁧󠁢󠁳󠁣󠁴󠁿"
+    "reveal": "Met spoken en whisky kelder.\nYe olde! 🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+    "moreInfo": {
+      "description": "Authentiek Schots kasteel met minimaal 10 slaapkamers, whisky kelder, en bij voorkeur een huisspook.",
+      "links": [
+        {
+          "label": "Scottish Castles for Sale",
+          "url": "https://www.savills.co.uk/property-for-sale/scotland.aspx"
+        }
+      ]
+    }
   },
   {
     "id": 30,
     "title": "Privéjet",
     "image": "✈️",
-    "reveal": "Gulfstream G700.\nGeen security check! 🛫"
+    "reveal": "Gulfstream G700.\nGeen security check! 🛫",
+    "moreInfo": {
+      "description": "Gulfstream G700, de ultieme privéjet. Met slaapkamer, douche, en bereik van 13.890 km.",
+      "links": [
+        {
+          "label": "Gulfstream G700",
+          "url": "https://www.gulfstream.com/en/aircraft/gulfstream-g700/"
+        }
+      ]
+    }
   }
 ]
