@@ -61,7 +61,7 @@ export default function NameSelectModal({ users, onSelect }: NameSelectModalProp
             onClick={() => setShowCustomInput(true)}
             className="w-full px-4 py-3 border-2 border-dashed border-gray-300 text-gray-600 rounded-xl hover:border-purple-400 hover:text-purple-600 transition-colors"
           >
-            + Andere naam
+            + Voeg je naam toe
           </button>
         ) : (
           <form onSubmit={handleCustomSubmit}>
