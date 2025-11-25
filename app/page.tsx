@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import GiftCard from '../components/GiftCard';
-import SmileyProgress from '../components/SmileyProgress';
 import wishlist from '../data/wishlist.json';
 
 export default function Home() {
@@ -91,15 +90,9 @@ export default function Home() {
           <h1 className="text-4xl sm:text-6xl font-bold mb-4">
             Hans z&apos;n Verlanglijstje 🎁
           </h1>
-          <p className="text-lg sm:text-xl mb-6 text-gray-600">
+          <p className="text-lg sm:text-xl text-gray-600">
             Wat zou Hans willen? Ontdek het en claim 'm!
           </p>
-
-          <SmileyProgress
-            openedCount={openedGifts.length}
-            totalCount={wishlist.length}
-            soundEnabled={settings.soundEnabled}
-          />
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
