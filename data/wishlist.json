@@ -145,13 +145,7 @@
     "image": "🕯️",
     "reveal": "Voor cozy avonden.\nSfeer! ✨",
     "moreInfo": {
-      "description": "Geurkaarsen met subtiele geur. Graag warme geuren zoals vanille, sandelhout of amber.",
-      "links": [
-        {
-          "label": "Geurkaarsen op Bol.com",
-          "url": "https://www.bol.com/nl/nl/s/?searchtext=geurkaarsen"
-        }
-      ]
+      "description": "Geurkaarsen met subtiele geur. Graag warme geuren zoals vanille, sandelhout of amber."
     }
   },
   {
@@ -160,11 +154,11 @@
     "image": "🏝️",
     "reveal": "Ergens in de Malediven.\nMet butler! 🛎️",
     "moreInfo": {
-      "description": "Een eigen eiland in de Malediven met villa, infinity pool, en 24/7 butler service.",
+      "description": "Een eigen eiland op Fiji met villa, infinity pool, en 24/7 butler service.",
       "links": [
         {
           "label": "Private Islands Online",
-          "url": "https://www.privateislandsonline.com/search?region=indian-ocean"
+          "url": "https://www.privateislandsonline.com/south-pacific/fiji/nabakabaka-lailai-island"
         }
       ]
     }
@@ -175,13 +169,7 @@
     "image": "🛋️",
     "reveal": "Bank upgrade.\nNetflix ready! 📺",
     "moreInfo": {
-      "description": "Zachte plaid voor op de bank. Neutrale kleuren: grijs, beige of donkerblauw. Liefst groot formaat.",
-      "links": [
-        {
-          "label": "Plaids op Bol.com",
-          "url": "https://www.bol.com/nl/nl/s/?searchtext=plaid+deken"
-        }
-      ]
+      "description": "Zachte plaid voor op de bank. Neutrale kleuren. Liefst groot formaat."
     }
   },
   {
@@ -190,13 +178,7 @@
     "image": "🧴",
     "reveal": "Ruikt heerlijk fris.\nHanden wassen = zen! 🍋",
     "moreInfo": {
-      "description": "Handzeep met citroengras geur. In een mooie dispenser of als navulling.",
-      "links": [
-        {
-          "label": "Handzeep citroengras",
-          "url": "https://www.bol.com/nl/nl/s/?searchtext=handzeep+citroengras"
-        }
-      ]
+      "description": "Handzeep met citroengras geur. In een mooie dispenser of als navulling."
     }
   },
   {
@@ -220,13 +202,7 @@
     "image": "🖼️",
     "reveal": "Voor mooie herinneringen.\nPersonaliseer! 📸",
     "moreInfo": {
-      "description": "Mooie fotolijst met passe-partout. Formaat A4 of 30x40cm. Zwart of houten frame.",
-      "links": [
-        {
-          "label": "Fotolijsten op Bol.com",
-          "url": "https://www.bol.com/nl/nl/s/?searchtext=fotolijst+passe+partout"
-        }
-      ]
+      "description": "Mooie fotolijst met passe-partout. Houten frame. Mag ook met inhoud."
     }
   },
   {
@@ -235,13 +211,7 @@
     "image": "🍽️",
     "reveal": "Keuken refresh.\nKleurtjes! 🌈",
     "moreInfo": {
-      "description": "Set theedoeken van goede kwaliteit. Neutrale kleuren of leuke prints.",
-      "links": [
-        {
-          "label": "Theedoeken op Bol.com",
-          "url": "https://www.bol.com/nl/nl/s/?searchtext=theedoeken+set"
-        }
-      ]
+      "description": "Set theedoeken van goede kwaliteit. Neutrale kleuren of leuke prints."
     }
   },
   {
@@ -265,29 +235,14 @@
     "image": "🫔",
     "reveal": "Voor de keuken.\nFluffy! 🧽",
     "moreInfo": {
-      "description": "Zachte handdoeken voor in de badkamer. Wit of antraciet. Liefst 500+ gsm.",
-      "links": [
-        {
-          "label": "Handdoeken op Bol.com",
-          "url": "https://www.bol.com/nl/nl/s/?searchtext=handdoeken+set"
-        }
-      ]
+      "description": "Handdoeken voor in de keuken. Beetje sjiek katoen."
     }
   },
   {
     "id": 15,
     "title": "Douchegel fancy",
     "image": "🚿",
-    "reveal": "Voor dagelijkse routine.\nFris! 🧼",
-    "moreInfo": {
-      "description": "Premium douchegel met frisse geur. Merken als Rituals, Molton Brown of L'Occitane.",
-      "links": [
-        {
-          "label": "Rituals douchegel",
-          "url": "https://www.rituals.com/nl-nl/collection-body-shower.html"
-        }
-      ]
-    }
+    "reveal": "Voor mannelijke mannen.\nKruidig! 🧼"
   },
   {
     "id": 26,
@@ -310,13 +265,7 @@
     "image": "🏺",
     "reveal": "Voor verse bloemen.\nKleurtjes! 💐",
     "moreInfo": {
-      "description": "Mooie vaas, liefst van glas of keramiek. Medium formaat, geschikt voor een boeket.",
-      "links": [
-        {
-          "label": "Vazen op Bol.com",
-          "url": "https://www.bol.com/nl/nl/s/?searchtext=vaas+bloemen"
-        }
-      ]
+      "description": "Mooie vaas, liefst van glas of keramiek. Medium formaat, geschikt voor een boeket."
     }
   },
   {
@@ -325,26 +274,26 @@
     "image": "🧑🏻‍🍳",
     "reveal": "Voor deeg en ingrediënten.\nHandig! 👨‍🍳",
     "moreInfo": {
-      "description": "Flexibele siliconen deegschraper voor in de keuken. Liefst een set met verschillende maten.",
+      "description": "Onmisbaar als jullie lekker willen eten met Kerst.",
       "links": [
         {
-          "label": "Deegschrapers op Bol.com",
-          "url": "https://www.bol.com/nl/nl/s/?searchtext=deegschraper+siliconen"
+          "label": "Braadbaas",
+          "url": "https://braadbaas.nl/products/bench-scraper-deegsteker?variant=49571531620700&country=NL&currency=EUR"
         }
       ]
     }
   },
   {
     "id": 27,
-    "title": "Jacht (50 meter)",
+    "title": "Jacht",
     "image": "🛥️",
     "reveal": "Met helikopterplatform.\nAhoy! ⚓",
     "moreInfo": {
-      "description": "Superjacht van 50+ meter met helikopterplatform, jacuzzi op het dek, en crew van minimaal 10 personen.",
+      "description": "Superjacht van 100+ meter met helikopterplatform, jacuzzi op het dek, en crew van minimaal 10 personen.",
       "links": [
         {
           "label": "Burgess Yachts",
-          "url": "https://www.burgessyachts.com/en/sale-purchase/yachts-for-sale"
+          "url": "https://www.burgessyachts.com/en/buy-a-yacht/yachts-for-sale/golden-odyssey-00001226"
         }
       ]
     }
@@ -355,7 +304,7 @@
     "image": "🍜",
     "reveal": "Sendan Tokusa 18cm.\nJapanse stijl! 🇯🇵",
     "moreInfo": {
-      "description": "Tokyo Design Studio Sendan Tokusa kommen, 18cm diameter. Set van 4 stuks.",
+      "description": "Tokyo Design Studio Sendan Tokusa kommen, 18cm diameter.",
       "links": [
         {
           "label": "Tokyo Design Studio",
@@ -373,8 +322,8 @@
       "description": "Verse witte Alba truffels uit Piemonte. 1 kilogram van de beste kwaliteit.",
       "links": [
         {
-          "label": "Truffle Hunters",
-          "url": "https://www.trufflehunter.co.uk/"
+          "label": "Food Joy",
+          "url": "https://www.foodjoy.nl/products/verse-witte-truffel?variant=42399951388870"
         }
       ]
     }
@@ -388,8 +337,8 @@
       "description": "Authentiek Schots kasteel met minimaal 10 slaapkamers, whisky kelder, en bij voorkeur een huisspook.",
       "links": [
         {
-          "label": "Scottish Castles for Sale",
-          "url": "https://www.savills.co.uk/property-for-sale/scotland.aspx"
+          "label": "Savills",
+          "url": "https://search.savills.com/property-detail/gbedruedr230045"
         }
       ]
     }
