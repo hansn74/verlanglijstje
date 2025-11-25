@@ -131,10 +131,23 @@ function HomeContent() {
     }
   };
 
-  const handleNameSelect = (name: string) => {
+  const handleNameSelect = async (name: string) => {
     setUserName(name);
     localStorage.setItem('userName', name);
     setShowNameSelect(false);
+
+    // Register user in backend (for new users)
+    try {
+      await fetch('/api/claims', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userName: name }),
+      });
+      // Refresh users list
+      await fetchClaims();
+    } catch (error) {
+      console.error('Error registering user:', error);
+    }
   };
 
   // Loading state

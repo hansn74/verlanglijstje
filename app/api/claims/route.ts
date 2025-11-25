@@ -131,6 +131,37 @@ export async function POST(request: Request) {
   }
 }
 
+// PUT - Register a new user
+export async function PUT(request: Request) {
+  try {
+    const { userName } = await request.json();
+
+    if (!userName) {
+      return NextResponse.json({ error: 'Missing userName' }, { status: 400 });
+    }
+
+    // Fetch current data
+    const data = await fetchGistData();
+
+    // Add user if not already there
+    if (!data.users.includes(userName)) {
+      data.users.push(userName);
+
+      // Save to Gist
+      const success = await updateGistData(data);
+
+      if (!success) {
+        return NextResponse.json({ error: 'Failed to save user' }, { status: 500 });
+      }
+    }
+
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    console.error('Error registering user:', error);
+    return NextResponse.json({ error: 'Failed to register user' }, { status: 500 });
+  }
+}
+
 // DELETE - Unclaim a gift
 export async function DELETE(request: Request) {
   try {
