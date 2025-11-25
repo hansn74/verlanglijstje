@@ -92,7 +92,7 @@ export default function Home() {
             Hans z&apos;n Verlanglijstje 🎁
           </h1>
           <p className="text-lg sm:text-xl mb-6 text-gray-600">
-            Tap op een cadeau om te ontdekken wat Hans graag wil!
+            Wat zou Hans willen? Ontdek het en claim 'm!
           </p>
 
           <SmileyProgress
@@ -100,24 +100,6 @@ export default function Home() {
             totalCount={wishlist.length}
             soundEnabled={settings.soundEnabled}
           />
-
-          {/* Stats Dashboard */}
-          <div className="mt-6 p-4 rounded-xl bg-white/60 backdrop-blur-sm inline-block">
-            <div className="flex gap-8 text-sm">
-              <div>
-                <div className="font-bold text-2xl">{openedGifts.length}</div>
-                <div className="text-gray-600">Bekeken</div>
-              </div>
-              <div>
-                <div className="font-bold text-2xl">{Object.keys(claimedGifts).length}</div>
-                <div className="text-gray-600">Geclaimd</div>
-              </div>
-              <div>
-                <div className="font-bold text-2xl">{wishlist.length - Object.keys(claimedGifts).length}</div>
-                <div className="text-gray-600">Beschikbaar</div>
-              </div>
-            </div>
-          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
