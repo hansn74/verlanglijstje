@@ -1,18 +1,9 @@
 [
   {
     "id": 1,
-    "title": "Fancy olijfolie & balsamico",
+    "title": "Sjieke olijfolie of balsamico",
     "image": "🫒",
-    "reveal": "Maakt elke salade speciaal.\nSmaak! 🥗",
-    "moreInfo": {
-      "description": "Een mooie set met premium olijfolie en balsamico azijn. Liefst Italiaans!",
-      "links": [
-        {
-          "label": "Voorbeeld op Bol.com",
-          "url": "https://www.bol.com/nl/nl/s/?searchtext=olijfolie+balsamico+set"
-        }
-      ]
-    }
+    "reveal": "Maakt elke salade speciaal.\nSmaak! 🥗"
   },
   {
     "id": 19,
