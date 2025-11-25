@@ -5,7 +5,12 @@ import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import GiftCard from '../components/GiftCard';
 import NameSelectModal from '../components/NameSelectModal';
+import BackToTop from '../components/BackToTop';
+import CountdownTimer from '../components/CountdownTimer';
 import wishlist from '../data/wishlist.json';
+
+// Party date: Saturday November 29, 2025 at 16:00
+const PARTY_DATE = new Date('2025-11-29T16:00:00');
 
 function HomeContent() {
   const searchParams = useSearchParams();
@@ -214,10 +219,13 @@ function HomeContent() {
               </div>
             </div>
 
-            <p className="text-gray-600 text-sm">
+            <p className="text-gray-600 text-sm mb-4">
               Uiteraard kun je niet met lege handen aankomen... <br />
               Gelukkig heb je nu deze handige lijst! 👇
             </p>
+
+            {/* Countdown Timer */}
+            <CountdownTimer targetDate={PARTY_DATE} />
           </div>
 
           {userName && (
@@ -260,6 +268,9 @@ function HomeContent() {
           </p>
         </motion.div>
       </div>
+
+      {/* Back to Top Button */}
+      <BackToTop />
     </div>
   );
 }

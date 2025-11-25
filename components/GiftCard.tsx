@@ -1,14 +1,27 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { playPlop, playTap } from '@/lib/sounds';
+import confetti from 'canvas-confetti';
+
+interface MoreInfoLink {
+  label: string;
+  url: string;
+}
+
+interface MoreInfo {
+  description?: string;
+  links?: MoreInfoLink[];
+  images?: string[];
+}
 
 interface GiftCardProps {
   id: number;
   title: string;
   image: string;
   reveal: string;
+  moreInfo?: MoreInfo;
   onOpen: () => void;
   settings: {
     animationSpeed: 'slow' | 'medium' | 'fast';
@@ -27,6 +40,7 @@ export default function GiftCard({
   title,
   image,
   reveal,
+  moreInfo,
   onOpen,
   settings,
   isClaimed = false,
@@ -40,6 +54,7 @@ export default function GiftCard({
   const [showUnclaimConfirm, setShowUnclaimConfirm] = useState(false);
   const [isClaiming, setIsClaiming] = useState(false);
   const [isUnclaiming, setIsUnclaiming] = useState(false);
+  const [showMoreInfo, setShowMoreInfo] = useState(false);
 
   // Reset claiming/unclaiming state when isClaimed changes
   useEffect(() => {
@@ -93,6 +108,14 @@ export default function GiftCard({
     if (onClaim) {
       setIsClaiming(true);
       await onClaim();
+
+      // Fire confetti!
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#a855f7', '#ec4899', '#f472b6', '#c084fc']
+      });
     }
   };
 
@@ -146,7 +169,7 @@ export default function GiftCard({
       {/* Open State - Revealed Content */}
       {isOpen && (
         <motion.div
-          className="bg-white rounded-2xl p-8 shadow-xl h-[340px] relative flex flex-col"
+          className="bg-white rounded-2xl p-8 shadow-xl min-h-[340px] relative flex flex-col"
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{
@@ -192,13 +215,85 @@ export default function GiftCard({
 
           {/* Reveal Text */}
           <motion.div
-            className="text-gray-600 text-center text-lg leading-relaxed whitespace-pre-line flex-grow"
+            className="text-gray-600 text-center text-lg leading-relaxed whitespace-pre-line"
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: animDuration * 0.5, duration: animDuration * 0.4 }}
           >
             {reveal}
           </motion.div>
+
+          {/* More Info Section */}
+          {moreInfo && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: animDuration * 0.6 }}
+              className="mt-3"
+            >
+              {!showMoreInfo ? (
+                <button
+                  onClick={() => setShowMoreInfo(true)}
+                  className="text-purple-500 hover:text-purple-700 text-sm flex items-center gap-1 mx-auto"
+                >
+                  <span>ℹ️</span>
+                  <span className="underline">Meer info</span>
+                </button>
+              ) : (
+                <div className="bg-gray-50 rounded-lg p-3 text-sm">
+                  <div className="flex justify-between items-start mb-2">
+                    <span className="font-medium text-gray-700">Details:</span>
+                    <button
+                      onClick={() => setShowMoreInfo(false)}
+                      className="text-gray-400 hover:text-gray-600"
+                    >
+                      ✕
+                    </button>
+                  </div>
+
+                  {moreInfo.description && (
+                    <p className="text-gray-600 mb-2">{moreInfo.description}</p>
+                  )}
+
+                  {moreInfo.links && moreInfo.links.length > 0 && (
+                    <div className="space-y-1">
+                      {moreInfo.links.map((link, index) => (
+                        <a
+                          key={index}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-purple-600 hover:text-purple-800 flex items-center gap-1"
+                        >
+                          <span>🔗</span>
+                          <span className="underline">{link.label}</span>
+                        </a>
+                      ))}
+                    </div>
+                  )}
+
+                  {moreInfo.images && moreInfo.images.length > 0 && (
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {moreInfo.images.map((img, index) => (
+                        <a
+                          key={index}
+                          href={img}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-purple-600 hover:text-purple-800 flex items-center gap-1"
+                        >
+                          <span>🖼️</span>
+                          <span className="underline">Afbeelding {index + 1}</span>
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+            </motion.div>
+          )}
+
+          <div className="flex-grow" />
 
           {/* Claim Button */}
           {!isClaimed && !isClaiming && onClaim && (
