@@ -26,26 +26,26 @@
     "image": "🌶️",
     "reveal": "Hans houdt van pittig.\nHoe heter, hoe beter! 🔥",
     "moreInfo": {
-      "description": "Verschillende soorten hot sauce, van heet tot extreem.",
+      "description": "Verschillende soorten hot sauce, van mild tot extreem. Denk aan Sriracha, Tabasco, of échte habanero sauzen.",
       "links": [
         {
-          "label": "Heat Supply",
-          "url": "https://www.heatsupply.nl/hot-sauce/"
+          "label": "Hot sauce cadeau set",
+          "url": "https://www.bol.com/nl/nl/s/?searchtext=hot+sauce+cadeau+set"
         }
       ]
     }
   },
   {
     "id": 3,
-    "title": "Premium thee collectie",
+    "title": "Losse thee",
     "image": "🍵",
     "reveal": "Voor rustige momenten.\nOntspanning! 🍵",
     "moreInfo": {
-      "description": "Losse thee in mooie blikjes. Graag verschillende smaken: groene thee, Earl Grey, en kruidenthee.",
+      "description": "Zwart, groen, wit, kijk maar!",
       "links": [
         {
-          "label": "Thee cadeau bij Bol.com",
-          "url": "https://www.bol.com/nl/nl/s/?searchtext=thee+cadeau+set"
+          "label": "Simon Lévelt",
+          "url": "https://www.simonlevelt.nl/nl/thee/losse-thee/"
         }
       ]
     }
@@ -56,11 +56,10 @@
     "image": "🏎️",
     "reveal": "GT3 RS in Racing Yellow.\nVroem vroem! 💨",
     "moreInfo": {
-      "description": "911 GT3 RS, Racing Yellow, carbon kuipstoelen, Weissach pakket. Graag voor de deur parkeren!",
       "links": [
         {
           "label": "Porsche 911 GT3 RS",
-          "url": "https://www.porsche.com/netherlands/models/911/911-gt3-models/911-gt3-rs/"
+          "url": "https://www.porsche.com/netherlands/nl/models/911/911-gt3-rs/911-gt3-rs/"
         }
       ]
     }
@@ -71,11 +70,11 @@
     "image": "🍷",
     "reveal": "Voor goede wijn.\nProeven! 🍇",
     "moreInfo": {
-      "description": "RIEDEL Veloce serie, voor rode wijn (Cabernet/Merlot). Set van 2 of 4 glazen.",
+      "description": "RIEDEL Veloce serie, jij mag kiezen!",
       "links": [
         {
-          "label": "RIEDEL Veloce glazen",
-          "url": "https://www.bol.com/nl/nl/s/?searchtext=riedel+veloce"
+          "label": "RIEDEL Veloce",
+          "url": "https://www.riedel.com/en-nl/collections/riedel-veloce#"
         }
       ]
     }
@@ -84,28 +83,19 @@
     "id": 5,
     "title": "Fancy witte sokken",
     "image": "🧦",
-    "reveal": "Wit schijnt in te zijn.\nComfort! 😊",
-    "moreInfo": {
-      "description": "Witte sokken van goede kwaliteit. Maat 43-46. Liefst van katoen of bamboe.",
-      "links": [
-        {
-          "label": "Witte sokken op Zalando",
-          "url": "https://www.zalando.nl/kleding-heren/?q=witte+sokken"
-        }
-      ]
-    }
+    "reveal": "Wit schijnt in te zijn.\nComfort! 😊"
   },
   {
     "id": 21,
-    "title": "100gr Beluga Kaviaar",
+    "title": "250gr Beluga Kaviaar",
     "image": "🥄",
     "reveal": "Iranian Beluga.\nMet parelmoer lepeltje! 🖤",
     "moreInfo": {
-      "description": "Echte Iraanse Beluga kaviaar, 100 gram. Met parelmoeren lepeltje erbij (geen metaal!).",
+      "description": "Echte Iraanse Beluga kaviaar. Met parelmoeren lepeltje erbij (geen metaal!).",
       "links": [
         {
-          "label": "Caviar & Bull",
-          "url": "https://www.caviarandbull.nl/"
+          "label": "Caviar Passion",
+          "url": "https://www.caviarpassion.com/nl/8-170-caviar-beluga-selection.html"
         }
       ]
     }
@@ -114,16 +104,7 @@
     "id": 6,
     "title": "Warme sjaal",
     "image": "🧣",
-    "reveal": "Nederlands weer.\nWarm blijven! ❄️",
-    "moreInfo": {
-      "description": "Warme sjaal voor de winter. Neutrale kleuren: grijs, donkerblauw of zwart. Liefst wol of cashmere.",
-      "links": [
-        {
-          "label": "Sjaals op Zalando",
-          "url": "https://www.zalando.nl/accessoires-heren/sjaals/"
-        }
-      ]
-    }
+    "reveal": "Nederlands weer.\nWarm blijven! ❄️"
   },
   {
     "id": 7,
@@ -131,13 +112,7 @@
     "image": "🧦",
     "reveal": "Voor warme voeten thuis.\nCozy! 🏠",
     "moreInfo": {
-      "description": "Warme sokken met anti-slip zool. Maat 43-46. Leuke kleuren of prints zijn welkom!",
-      "links": [
-        {
-          "label": "Huissokken op Bol.com",
-          "url": "https://www.bol.com/nl/nl/s/?searchtext=huissokken+heren"
-        }
-      ]
+      "description": "Warme sokken met anti-slip zool. Maat 43-46. Leuke kleuren of prints zijn welkom!"
     }
   },
   {
@@ -161,13 +136,7 @@
     "image": "🪴",
     "reveal": "Voor leven in huis.\nGroene vibes! 🌱",
     "moreInfo": {
-      "description": "Een plant die weinig water nodig heeft. Bijvoorbeeld een Sansevieria, Monstera of Zamioculcas.",
-      "links": [
-        {
-          "label": "Kamerplanten bij Intratuin",
-          "url": "https://www.intratuin.nl/kamerplanten/"
-        }
-      ]
+      "description": "Een plant die weinig water nodig heeft."
     }
   },
   {
