@@ -1,15 +1,20 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import GiftCard from '../components/GiftCard';
+import NameSelectModal from '../components/NameSelectModal';
 import wishlist from '../data/wishlist.json';
 
-export default function Home() {
+function HomeContent() {
+  const searchParams = useSearchParams();
+  const [isAuthorized, setIsAuthorized] = useState<boolean | null>(null);
   const [openedGifts, setOpenedGifts] = useState<number[]>([]);
   const [claimedGifts, setClaimedGifts] = useState<Record<number, { claimedBy: string }>>({});
+  const [users, setUsers] = useState<string[]>([]);
   const [userName, setUserName] = useState<string>('');
-  const [showNamePrompt, setShowNamePrompt] = useState(false);
+  const [showNameSelect, setShowNameSelect] = useState(false);
 
   // Default settings (hardcoded)
   const settings = {
@@ -18,23 +23,64 @@ export default function Home() {
     soundEnabled: true,
   };
 
-  // Load user name and claims from server
+  // Check token and load data
   useEffect(() => {
-    // Get or set user name
-    const savedName = localStorage.getItem('userName');
-    if (savedName) {
-      setUserName(savedName);
-    }
+    const checkAuth = async () => {
+      // First check localStorage for saved token
+      const savedToken = localStorage.getItem('accessToken');
+      const savedName = localStorage.getItem('userName');
+      const urlToken = searchParams.get('token');
 
-    // Fetch all claims from server
-    fetchClaims();
-  }, []);
+      // Use URL token if provided, otherwise use saved token
+      const token = urlToken || savedToken;
+
+      if (!token) {
+        setIsAuthorized(false);
+        return;
+      }
+
+      try {
+        const response = await fetch('/api/auth', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ token }),
+        });
+
+        if (response.ok) {
+          setIsAuthorized(true);
+          // Save token to localStorage
+          localStorage.setItem('accessToken', token);
+
+          // If we have a saved name, use it
+          if (savedName) {
+            setUserName(savedName);
+          } else {
+            // Show name selection
+            setShowNameSelect(true);
+          }
+
+          // Fetch claims and users
+          await fetchClaims();
+        } else {
+          setIsAuthorized(false);
+          // Clear invalid token
+          localStorage.removeItem('accessToken');
+        }
+      } catch (error) {
+        console.error('Auth error:', error);
+        setIsAuthorized(false);
+      }
+    };
+
+    checkAuth();
+  }, [searchParams]);
 
   const fetchClaims = async () => {
     try {
       const response = await fetch('/api/claims');
       const data = await response.json();
       setClaimedGifts(data.claims || {});
+      setUsers(data.users || []);
     } catch (error) {
       console.error('Error fetching claims:', error);
     }
@@ -47,12 +93,6 @@ export default function Home() {
   };
 
   const handleClaim = async (id: number) => {
-    // Ask for name if not set
-    if (!userName) {
-      setShowNamePrompt(true);
-      return;
-    }
-
     try {
       const response = await fetch('/api/claims', {
         method: 'POST',
@@ -61,7 +101,6 @@ export default function Home() {
       });
 
       if (response.ok) {
-        // Refresh claims
         await fetchClaims();
       } else {
         const data = await response.json();
@@ -73,11 +112,59 @@ export default function Home() {
     }
   };
 
-  const saveName = (name: string) => {
+  const handleUnclaim = async (id: number) => {
+    try {
+      const response = await fetch('/api/claims', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ giftId: id }),
+      });
+
+      if (response.ok) {
+        await fetchClaims();
+      } else {
+        alert('Er ging iets mis bij het annuleren.');
+      }
+    } catch (error) {
+      console.error('Error unclaiming gift:', error);
+      alert('Er ging iets mis. Probeer het opnieuw.');
+    }
+  };
+
+  const handleNameSelect = (name: string) => {
     setUserName(name);
     localStorage.setItem('userName', name);
-    setShowNamePrompt(false);
+    setShowNameSelect(false);
   };
+
+  // Loading state
+  if (isAuthorized === null) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 flex items-center justify-center">
+        <div className="text-2xl text-gray-600">⏳ Laden...</div>
+      </div>
+    );
+  }
+
+  // Unauthorized state
+  if (!isAuthorized) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 flex items-center justify-center p-4">
+        <div className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl text-center">
+          <div className="text-6xl mb-4">🔒</div>
+          <h1 className="text-2xl font-bold mb-4">Geen toegang</h1>
+          <p className="text-gray-600">
+            Je hebt een speciale link nodig om deze pagina te bekijken.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  // Name selection modal
+  if (showNameSelect) {
+    return <NameSelectModal users={users} onSelect={handleNameSelect} />;
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 text-gray-800 p-4 sm:p-8">
@@ -93,10 +180,21 @@ export default function Home() {
           <p className="text-lg sm:text-xl text-gray-600">
             Wat zou Hans willen? Ontdek het en claim 'm!
           </p>
+          {userName && (
+            <p className="text-sm text-gray-500 mt-2">
+              Ingelogd als: <span className="font-semibold">{userName}</span>
+              <button
+                onClick={() => setShowNameSelect(true)}
+                className="ml-2 text-purple-600 hover:text-purple-800 underline"
+              >
+                wijzig
+              </button>
+            </p>
+          )}
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {wishlist.map((item, index) => (
+          {wishlist.map((item) => (
             <GiftCard
               key={item.id}
               {...item}
@@ -106,57 +204,10 @@ export default function Home() {
               claimedBy={claimedGifts[item.id]?.claimedBy}
               currentUser={userName}
               onClaim={() => handleClaim(item.id)}
+              onUnclaim={() => handleUnclaim(item.id)}
             />
           ))}
         </div>
-
-        {/* Name Prompt Modal */}
-        {showNamePrompt && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl"
-            >
-              <h2 className="text-2xl font-bold mb-4">Hoe heet je?</h2>
-              <p className="text-gray-600 mb-6">
-                Vul je naam in zodat Hans weet wie wat geeft!
-              </p>
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  const input = e.currentTarget.elements.namedItem('name') as HTMLInputElement;
-                  if (input.value.trim()) {
-                    saveName(input.value.trim());
-                  }
-                }}
-              >
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Je naam..."
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg mb-4 focus:border-blue-500 focus:outline-none"
-                  autoFocus
-                />
-                <div className="flex gap-3">
-                  <button
-                    type="button"
-                    onClick={() => setShowNamePrompt(false)}
-                    className="flex-1 px-4 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors font-semibold"
-                  >
-                    Annuleren
-                  </button>
-                  <button
-                    type="submit"
-                    className="flex-1 px-4 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors font-semibold"
-                  >
-                    Opslaan
-                  </button>
-                </div>
-              </form>
-            </motion.div>
-          </div>
-        )}
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -169,7 +220,18 @@ export default function Home() {
           </p>
         </motion.div>
       </div>
-
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 flex items-center justify-center">
+        <div className="text-2xl text-gray-600">⏳ Laden...</div>
+      </div>
+    }>
+      <HomeContent />
+    </Suspense>
   );
 }

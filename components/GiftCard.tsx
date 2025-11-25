@@ -19,6 +19,7 @@ interface GiftCardProps {
   claimedBy?: string;
   currentUser?: string;
   onClaim?: () => Promise<void> | void;
+  onUnclaim?: () => Promise<void> | void;
 }
 
 export default function GiftCard({
@@ -31,18 +32,21 @@ export default function GiftCard({
   isClaimed = false,
   claimedBy,
   currentUser,
-  onClaim
+  onClaim,
+  onUnclaim
 }: GiftCardProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [showClaimConfirm, setShowClaimConfirm] = useState(false);
+  const [showUnclaimConfirm, setShowUnclaimConfirm] = useState(false);
   const [isClaiming, setIsClaiming] = useState(false);
+  const [isUnclaiming, setIsUnclaiming] = useState(false);
 
-  // Reset claiming state when isClaimed changes
+  // Reset claiming/unclaiming state when isClaimed changes
   useEffect(() => {
-    if (isClaimed) {
-      setIsClaiming(false);
-      setShowClaimConfirm(false);
-    }
+    setIsClaiming(false);
+    setIsUnclaiming(false);
+    setShowClaimConfirm(false);
+    setShowUnclaimConfirm(false);
   }, [isClaimed]);
 
   // Animation speed mapping
@@ -89,6 +93,13 @@ export default function GiftCard({
     if (onClaim) {
       setIsClaiming(true);
       await onClaim();
+    }
+  };
+
+  const handleUnclaim = async () => {
+    if (onUnclaim) {
+      setIsUnclaiming(true);
+      await onUnclaim();
     }
   };
 
@@ -238,20 +249,59 @@ export default function GiftCard({
           )}
 
           {/* Claimed Message */}
-          {isClaimed && (
+          {isClaimed && !isUnclaiming && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className={`p-3 rounded-lg text-center text-sm mt-auto ${
-                claimedBy && currentUser && claimedBy === currentUser
-                  ? 'bg-green-100 text-green-800'
-                  : 'bg-amber-100 text-amber-800'
-              }`}
+              className="mt-auto"
             >
-              {claimedBy && currentUser && claimedBy === currentUser
-                ? '✅ Jij geeft dit cadeau!'
-                : '🎁 Dit cadeau is al gereserveerd'}
+              {claimedBy && currentUser && claimedBy === currentUser ? (
+                // Own claim - show unclaim option
+                !showUnclaimConfirm ? (
+                  <div className="bg-green-100 p-3 rounded-lg">
+                    <p className="text-green-800 text-sm text-center mb-2">✅ Jij geeft dit cadeau!</p>
+                    <button
+                      onClick={() => setShowUnclaimConfirm(true)}
+                      className="w-full text-green-600 text-xs hover:text-green-800 underline"
+                    >
+                      Toch niet geven?
+                    </button>
+                  </div>
+                ) : (
+                  <div className="bg-red-50 p-3 rounded-lg">
+                    <p className="text-sm text-red-800 mb-3 text-center">
+                      Weet je het zeker?
+                    </p>
+                    <div className="flex gap-2">
+                      <button
+                        onClick={handleUnclaim}
+                        className="flex-1 bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 text-sm"
+                      >
+                        Ja, annuleren
+                      </button>
+                      <button
+                        onClick={() => setShowUnclaimConfirm(false)}
+                        className="flex-1 bg-gray-200 text-gray-700 py-2 rounded-lg hover:bg-gray-300 text-sm"
+                      >
+                        Nee, behouden
+                      </button>
+                    </div>
+                  </div>
+                )
+              ) : (
+                // Someone else's claim
+                <div className="bg-amber-100 text-amber-800 p-3 rounded-lg text-center text-sm">
+                  🎁 Dit cadeau is al gereserveerd
+                </div>
+              )}
             </motion.div>
+          )}
+
+          {/* Unclaiming in progress */}
+          {isUnclaiming && (
+            <div className="mt-auto pt-4 text-center text-red-600 font-semibold">
+              ⏳ Even geduld...
+            </div>
           )}
         </motion.div>
       )}
