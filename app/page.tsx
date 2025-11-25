@@ -88,7 +88,7 @@ export default function Home() {
           className="text-center mb-8"
         >
           <h1 className="text-4xl sm:text-6xl font-bold mb-4">
-            Hans z&apos;n Verlanglijstje 🎁
+            Hans z'n verlanglijstje 🎁
           </h1>
           <p className="text-lg sm:text-xl text-gray-600">
             Wat zou Hans willen? Ontdek het en claim 'm!
