@@ -190,11 +190,38 @@ function HomeContent() {
           <h1 className="text-4xl sm:text-6xl font-bold mb-4">
             Hans z'n verlanglijstje 🎁
           </h1>
-          <p className="text-lg sm:text-xl text-gray-600">
+          <p className="text-lg sm:text-xl text-gray-600 mb-6">
             Wat zou Hans willen? Ontdek het en claim 'm!
           </p>
+
+          {/* Uitnodiging sectie */}
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 max-w-lg mx-auto shadow-lg mb-6">
+            <h2 className="text-2xl font-bold mb-2">🎉 Je bent uitgenodigd! 🎉</h2>
+            <p className="text-gray-600 mb-4">Hans wordt weer een jaartje wijzer en dat moet gevierd worden!</p>
+
+            <div className="bg-purple-50 rounded-xl p-4 mb-4 text-left">
+              <div className="flex items-center gap-3 mb-2">
+                <span className="text-xl">📅</span>
+                <span className="font-medium">Zaterdag 29 november</span>
+              </div>
+              <div className="flex items-center gap-3 mb-2">
+                <span className="text-xl">🕓</span>
+                <span className="font-medium">Vanaf 16:00</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-xl">📍</span>
+                <span className="font-medium">Je weet waar 😉</span>
+              </div>
+            </div>
+
+            <p className="text-gray-600 text-sm">
+              Uiteraard kun je niet met lege handen aankomen... <br />
+              Gelukkig heb je nu deze handige lijst! 👇
+            </p>
+          </div>
+
           {userName && (
-            <p className="text-sm text-gray-500 mt-2">
+            <p className="text-sm text-gray-500">
               Ingelogd als: <span className="font-semibold">{userName}</span>
               <button
                 onClick={() => setShowNameSelect(true)}
