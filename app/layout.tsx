@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Hans z'n Verlanglijstje",
-  description: "Een gamified verlanglijst voor verjaardag en Sinterklaas",
+  description: "Wat zou Hans willen? Open de cadeautjes en ontdek het!",
 };
 
 export default function RootLayout({
